@@ -5,6 +5,7 @@ import cl.duoc.ms_taskflow.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -26,15 +27,15 @@ public class TaskService {
                 .orElseThrow(() -> new RuntimeException("Tarea no encontrada"));
     }
 
-    public Task actializar(Long id, Task task) {
+    public Task actualizar(Long id, Task task) {
         Task existente = obtener(id);
 
         existente.setDescripcion(task.getDescripcion());
         existente.setEstado(task.getEstado());
         existente.setPrioridad(task.getPrioridad());
         existente.setResponsable(task.getResponsable());
-        existente.setFechaInicio(task.getFechaInicio());
-        existente.setFechaFin(task.getFechaFin());
+
+        existente.setFechaModificado(LocalDateTime.now());
 
         return taskRepository.save(existente);
     }

@@ -33,7 +33,7 @@ public class TaskController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Task> actualizar(@PathVariable Long id, @Valid @RequestBody Task task) {
-        return ResponseEntity.ok(taskService.actializar(id, task));
+        return ResponseEntity.ok(taskService.actualizar(id, task));
     }
 
     @DeleteMapping("/{id}")

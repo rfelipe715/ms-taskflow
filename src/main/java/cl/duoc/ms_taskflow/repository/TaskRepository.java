@@ -3,6 +3,7 @@ package cl.duoc.ms_taskflow.repository;
 import cl.duoc.ms_taskflow.model.Task;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Repository
@@ -19,6 +20,10 @@ public class TaskRepository {
     }
 
     public Task save(Task task) {
+        // Se agregan fechas actuales
+        task.setFechaCreado(LocalDateTime.now());
+        task.setFechaCreado(LocalDateTime.now());
+
         data.put(task.getId(), task);
         return task;
     }
