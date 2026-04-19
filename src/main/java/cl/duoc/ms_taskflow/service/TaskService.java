@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -45,5 +46,15 @@ public class TaskService {
         taskRepository.delete(id);
     }
 
-    //TODO: agregar métodos de filtro
+    public List<Task> buscarPorPrioridad(String prioridad) {
+        return taskRepository.findAll().stream().filter(t -> t.getPrioridad().equalsIgnoreCase(prioridad)).toList();
+    }
+
+    public List<Task> buscarPorEstado(String estado) {
+        return taskRepository.findAll().stream().filter(t -> t.getEstado().equalsIgnoreCase(estado)).toList();
+    }
+
+    public List<Task> ordenarPorEstado() {
+        return taskRepository.findAll().stream().sorted(Comparator.comparing(Task::getEstado)).toList();
+    }
 }

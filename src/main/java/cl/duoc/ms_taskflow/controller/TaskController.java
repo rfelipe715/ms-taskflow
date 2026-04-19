@@ -42,5 +42,18 @@ public class TaskController {
         return ResponseEntity.noContent().build();
     }
 
-    //TODO: Agregar métodos de filtro
+    @GetMapping("/prioridad/{prioridad}")
+    public ResponseEntity<List<Task>> buscarPorPrioridad(@PathVariable String prioridad) {
+        return ResponseEntity.ok(taskService.buscarPorPrioridad(prioridad));
+    }
+
+    @GetMapping("/estado/{estado}")
+    public ResponseEntity<List<Task>> buscarPorEstado(@PathVariable String estado) {
+        return ResponseEntity.ok(taskService.buscarPorEstado(estado));
+    }
+
+    @GetMapping("/ordenar/estado")
+    public ResponseEntity<List<Task>> obtenerOrdenadoPorEstado() {
+        return ResponseEntity.ok(taskService.ordenarPorEstado());
+    }
 }
