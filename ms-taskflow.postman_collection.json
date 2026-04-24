@@ -1,0 +1,196 @@
+{
+  "info": {
+    "_postman_id": "5245f8bb-7dfa-46eb-bdd8-5205f31261d2",
+    "name": "ms-taskflow",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53940514",
+    "_collection_link": "https://go.postman.co/collection/53940514-5245f8bb-7dfa-46eb-bdd8-5205f31261d2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "get tasks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localhost}}/api/v1/task",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "task"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get tasks ordered by estado",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localhost}}/api/v1/task/ordenar/estado",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "task",
+            "ordenar",
+            "estado"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get tasks by prioridad",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localhost}}/api/v1/task/prioridad/baja",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "task",
+            "prioridad",
+            "baja"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get tasks by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localhost}}/api/v1/task/2",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "task",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete task",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{localhost}}/api/v1/task/2",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "task",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create task",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"descripcion\": \"tarea 2\",\r\n    \"estado\": \"finalizado\",\r\n    \"prioridad\": \"baja\",\r\n    \"responsable\": \"usuario1@email.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/api/v1/task",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "task"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update task",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"prioridad\": \"alta\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/api/v1/task/1",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "task",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "localhost",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
