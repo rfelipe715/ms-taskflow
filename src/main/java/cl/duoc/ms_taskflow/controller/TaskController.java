@@ -1,5 +1,7 @@
 package cl.duoc.ms_taskflow.controller;
 
+import cl.duoc.ms_taskflow.dto.CreateTaskDTO;
+import cl.duoc.ms_taskflow.dto.UpdateTaskDTO;
 import cl.duoc.ms_taskflow.model.Task;
 import cl.duoc.ms_taskflow.service.TaskService;
 import jakarta.validation.Valid;
@@ -22,7 +24,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<Task> crear(@Valid @RequestBody Task task) {
+    public ResponseEntity<Task> crear(@Valid @RequestBody CreateTaskDTO task) {
         return ResponseEntity.ok(taskService.crear(task));
     }
 
@@ -32,7 +34,7 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Task> actualizar(@PathVariable Long id, @Valid @RequestBody Task task) {
+    public ResponseEntity<Task> actualizar(@PathVariable Long id, @Valid @RequestBody UpdateTaskDTO task) {
         return ResponseEntity.ok(taskService.actualizar(id, task));
     }
 

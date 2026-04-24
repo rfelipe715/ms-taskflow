@@ -14,20 +14,12 @@ public class Task {
 
     private Long id;
 
-    @NotBlank(message = "La descripción es obligatorio")
     private String descripcion;
-
-    @NotBlank(message = "El estado es obligatorio")
     private String estado;
-
-    @NotBlank(message = "La prioridad es obligatorio")
     private String prioridad;
-
-    @NotBlank(message = "El responsable es obligatorio")
     private String responsable;
 
     private LocalDateTime fechaCreado;
-
     private LocalDateTime fechaModificado;
 
     // Para manejo de id incremental

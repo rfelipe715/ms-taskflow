@@ -20,10 +20,6 @@ public class TaskRepository {
     }
 
     public Task save(Task task) {
-        // Se agregan fechas actuales
-        task.setFechaCreado(LocalDateTime.now());
-        task.setFechaCreado(LocalDateTime.now());
-
         data.put(task.getId(), task);
         return task;
     }

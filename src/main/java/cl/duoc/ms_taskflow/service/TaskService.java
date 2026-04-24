@@ -1,5 +1,7 @@
 package cl.duoc.ms_taskflow.service;
 
+import cl.duoc.ms_taskflow.dto.CreateTaskDTO;
+import cl.duoc.ms_taskflow.dto.UpdateTaskDTO;
 import cl.duoc.ms_taskflow.model.Task;
 import cl.duoc.ms_taskflow.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,13 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Task crear(Task task) {
+    public Task crear(CreateTaskDTO createTaskDTO) {
+        Task task = new Task(
+                createTaskDTO.getDescripcion(),
+                createTaskDTO.getEstado(),
+                createTaskDTO.getPrioridad(),
+                createTaskDTO.getResponsable()
+                );
         return taskRepository.save(task);
     }
 
@@ -28,13 +36,27 @@ public class TaskService {
                 .orElseThrow(() -> new RuntimeException("Tarea no encontrada"));
     }
 
-    public Task actualizar(Long id, Task task) {
+    /**
+     * La tarea solo actualizará el contenido que llega en el Request
+     * @param id
+     * @param task
+     * @return
+     */
+    public Task actualizar(Long id, UpdateTaskDTO task) {
         Task existente = obtener(id);
 
-        existente.setDescripcion(task.getDescripcion());
-        existente.setEstado(task.getEstado());
-        existente.setPrioridad(task.getPrioridad());
-        existente.setResponsable(task.getResponsable());
+        if (task.getDescripcion() != null) {
+            existente.setDescripcion(task.getDescripcion());
+        }
+        if (task.getEstado() != null) {
+            existente.setEstado(task.getEstado());
+        }
+        if (task.getPrioridad() != null) {
+            existente.setPrioridad(task.getPrioridad());
+        }
+        if (task.getResponsable() != null) {
+            existente.setResponsable(task.getResponsable());
+        }
 
         existente.setFechaModificado(LocalDateTime.now());
 
