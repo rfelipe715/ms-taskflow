@@ -94,7 +94,7 @@
         "method": "DELETE",
         "header": [],
         "url": {
-          "raw": "{{localhost}}/api/v1/task/2",
+          "raw": "{{localhost}}/api/v1/task/1",
           "host": [
             "{{localhost}}"
           ],
@@ -102,7 +102,7 @@
             "api",
             "v1",
             "task",
-            "2"
+            "1"
           ]
         }
       },
@@ -115,7 +115,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"descripcion\": \"tarea 2\",\r\n    \"estado\": \"finalizado\",\r\n    \"prioridad\": \"baja\",\r\n    \"responsable\": \"usuario1@email.com\"\r\n}",
+          "raw": "{\r\n    \"descripcion\": \"tarea 1\",\r\n    \"estado\": \"creado\",\r\n    \"prioridad\": \"baja\",\r\n    \"responsable\": \"usuario1@email.com\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -143,7 +143,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"prioridad\": \"alta\"\r\n}",
+          "raw": "{\r\n    \"descripcion\": \"tarea actualizada\",\r\n    \"estado\": \"en proceso\",\r\n    \"prioridad\": \"media\",\r\n    \"responsable\": \"usuario1@email.com\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -160,6 +160,35 @@
             "v1",
             "task",
             "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update task parcial",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"prioridad\": \"urgente\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/api/v1/task/3",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "task",
+            "3"
           ]
         }
       },
